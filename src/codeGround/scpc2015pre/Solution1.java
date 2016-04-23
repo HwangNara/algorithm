@@ -1,7 +1,5 @@
 package codeGround.scpc2015pre;
 
-import java.util.ArrayList;
-import java.util.List;
 /* 아래 기본 제공된 코드를 수정 또는 삭제하고 본인이 코드를 사용하셔도 됩니다.
 단, 사용하는 클래스명이 Solution 이어야 하며, 가급적 Solution.java 를 사용할 것을 권장합니다.
 이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해 볼 수 있습니다. */
@@ -9,6 +7,10 @@ import java.util.Scanner;
 import java.io.FileInputStream;
 
 public class Solution1 {
+	
+	static int[] stones;
+	static int test_case = 0;
+	
 	public static void main(String args[]) throws Exception	{
 		/* 아래 메소드 호출은 앞으로 표준입력(키보드) 대신 input.txt 파일로 부터 읽어오겠다는 의미의 코드입니다.
 		   만약 본인의 PC 에서 테스트 할 때는, 입력값을 input.txt에 저장한 후 이 코드를 첫 부분에 사용하면,
@@ -17,70 +19,65 @@ public class Solution1 {
 		   단, Codeground 시스템에서 "제출하기" 할 때에는 반드시 이 메소드를 지우거나 주석(//) 처리 하셔야 합니다. */
 		
 		Scanner sc = new Scanner(new FileInputStream("frog_input.txt"));
-     
 //		Scanner sc = new Scanner(System.in);
 
-		int TC;
-		int test_case;
+		int TC = 0;
+		int jump = 0;
+		int range = 0;
+		int rangeCheck = 0;
+		int arrayCheckPointer = 0;
+		int stonesSize = 0;
+		int currentPosition;
 		
 		TC = sc.nextInt();        
 		for(test_case = 1; test_case <= TC; test_case++) {
 			
-			List<Integer> list = new ArrayList<>();
-			int numOfStone;
-			int count = 0;
-			int range = 0;
-			int cur = 0;
-			int last = 0;
+			jump = 0;
+			range = 0;
+			rangeCheck = 0;
+			arrayCheckPointer = 0;
+			currentPosition = 0;
 			
-			// 이 부분에서 알고리즘 프로그램을 작성하십시오.
-			numOfStone = sc.nextInt();
-			for (int i = 0; i < numOfStone; i++) {
-				list.add(sc.nextInt());
+			// 돌의 갯수만큼 배열에 저장
+			// 하면서 돌들의 거리 비교하면서 최대 필요한 거리 계산
+			stones = new int[sc.nextInt()];
+			stonesSize = stones.length;
+			for (int i = 0; i < stonesSize; i++) {
+				stones[i] = sc.nextInt();
+				if (i > 0) {
+					rangeCheck = rangeCheck >= stones[i] - stones[i - 1] ? rangeCheck : stones[i] - stones[i - 1];
+				}
 			}
-			last = list.get(numOfStone - 1);
 			range = sc.nextInt();
 			
-			int temp = 0;
-
+			// 전체 이동한지 검사
+			if (rangeCheck > range) {
+				answerPrint(-1);
+				continue;
+			}
 			
-			// ㄱㄱ
-			
-			while (cur < last) {
+			// 실제 계산
+			// stones를 하나씩 증가시키면서 range보다 같거나 작은 위치를 찾음
+			while (arrayCheckPointer < stonesSize - 1) {
 				
-				boolean moved = false;
-				// range만큼 돌려봐서 1칸 전진
-				for (int i = range; i > 0; i--) {
+				for (int i = arrayCheckPointer + 1; i < stonesSize;i++) {
 					
-					temp = cur + i;
-					
-					if (list.contains(temp)) {
-						
-						list.remove(list.indexOf(temp));
-						moved = true;
-						cur = temp;
-						count++;
+					if (range < stones[i] - currentPosition) {
 						break;
 					}
+					arrayCheckPointer++;
 				}
-				// 하나도 못 움직였으면 탈락
-				if (!moved) {
-					count = -1;
-					break;
-				}
+				currentPosition = stones[arrayCheckPointer];
+				jump++;
 			}
-			
-			for (int i : list) {
-				System.out.print(i + ", " );
-			}
-			System.out.println();
-			
-			
 			// 이 부분에서 정답을 출력하십시오.
-			System.out.println("Case #" + test_case);
-			System.out.println(count);
+			answerPrint(jump);
 		}
-		
 		sc.close();
+	}
+
+	private static void answerPrint(int count) {
+		System.out.println("Case #" + test_case);
+		System.out.println(count);
 	}
 }
