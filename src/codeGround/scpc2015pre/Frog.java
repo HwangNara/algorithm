@@ -6,7 +6,7 @@ package codeGround.scpc2015pre;
 import java.util.Scanner;
 import java.io.FileInputStream;
 
-public class Solution1 {
+public class Frog {
 	
 	static int[] stones;
 	static int test_case = 0;
