@@ -10,7 +10,7 @@ public class P18 {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		
-		System.setIn(new FileInputStream("P67.txt"));
+		System.setIn(new FileInputStream("input_sample/P67.txt"));
 		Scanner scan = new Scanner(System.in);
 		
 		List<Integer> listNum = new ArrayList<>();

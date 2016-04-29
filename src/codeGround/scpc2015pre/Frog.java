@@ -18,7 +18,7 @@ public class Frog {
 		   또한, 본인 PC에서 아래 메소드를 사용하지 않고 표준입력을 사용하여 테스트하셔도 무방합니다.
 		   단, Codeground 시스템에서 "제출하기" 할 때에는 반드시 이 메소드를 지우거나 주석(//) 처리 하셔야 합니다. */
 		
-		Scanner sc = new Scanner(new FileInputStream("frog_input.txt"));
+		Scanner sc = new Scanner(new FileInputStream("input_sample/frog_input.txt"));
 //		Scanner sc = new Scanner(System.in);
 
 		int TC = 0;
