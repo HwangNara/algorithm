@@ -1,5 +1,6 @@
 package acmicpc.p10000;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -9,7 +10,7 @@ import java.util.Stack;
 public class P10828_1 {
 	
 	public static void main(String[] args) throws FileNotFoundException {
-//		System.setIn(new FileInputStream("input_sample/bj10828.txt"));
+		System.setIn(new FileInputStream("input_sample/acm_10828.txt"));
 		Scanner sc = new Scanner(System.in);
 		int T = Integer.parseInt(sc.nextLine());
 		String temp = "";

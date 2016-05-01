@@ -1,4 +1,4 @@
-package acmicpc;
+package acmicpc.p1000;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,7 +10,7 @@ public class P1620 {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		
-		System.setIn(new FileInputStream("input_sample/acm_P1620.txt"));
+		System.setIn(new FileInputStream("input_sample/acm_1620.txt"));
 		Scanner sc = new Scanner(System.in);
 		String firstLine = sc.nextLine();
 		String[] params = firstLine.split(" ");
@@ -37,8 +37,6 @@ public class P1620 {
 				System.out.println(map.get(tmp) + 1);
 			}
 		}
-		
-		
 		sc.close();
 	}
 }

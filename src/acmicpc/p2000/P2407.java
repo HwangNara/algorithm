@@ -1,4 +1,4 @@
-package acmicpc;
+package acmicpc.p2000;
 
 import java.math.BigInteger;
 import java.util.Scanner;
