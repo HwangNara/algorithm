@@ -1,4 +1,4 @@
-package acmicpc.p11000;
+package acmicpc.p2000;
 
 import java.util.Scanner;
 

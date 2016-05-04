@@ -1,4 +1,4 @@
-package acmicpc;
+package acmicpc.p11000;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

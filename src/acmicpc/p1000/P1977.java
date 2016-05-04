@@ -1,4 +1,4 @@
-package acmicpc.p11000;
+package acmicpc.p1000;
 
 import java.util.ArrayList;
 import java.util.Collections;
