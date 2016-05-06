@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class P1661_DP {
+public class P1660_DP {
 
 	static List<Integer> S = new ArrayList<>();
 	static List<Integer> V = new ArrayList<>();
