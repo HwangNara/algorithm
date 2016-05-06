@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package test;
 
 /******************************************************************************
  *  Compilation:  javac Permutations.java
