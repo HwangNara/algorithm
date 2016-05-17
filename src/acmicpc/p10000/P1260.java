@@ -13,6 +13,7 @@ public class P1260 {
 	static Queue<Integer> que;
 	static boolean[] visited;
 	
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
