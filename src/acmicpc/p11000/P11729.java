@@ -1,14 +1,10 @@
-// TODO 시간초과
 package acmicpc.p11000;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class P11729 {
 	
-	static int counter = 0;
-	static List<String> list =  new LinkedList<>();
+	static StringBuffer sb = new StringBuffer();
 
 	public static void main(String[] args) {
 		
@@ -17,16 +13,13 @@ public class P11729 {
 		sc.close();
 		
 		hanoi(N, 0, 2);
-		System.out.println(counter);
-		for (String s : list) {
-			System.out.println(s);
-		}
+		System.out.println((int) Math.pow(2, N) - 1);
+		System.out.println(sb);
 	}
 
 	private static void hanoi(int n, int cur, int dest) {
 		if (n == 1) {
-			counter++;
-			list.add(++cur + " " + ++dest);
+			sb.append(++cur + " " + ++dest + "\n");
 			return;
 		}
 		int temp = 3 - (cur + dest);
