@@ -1,5 +1,5 @@
 // TODO ÇÏ´Â Áß
-package acmicpc.p2000;
+package acmicpc.p1000;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
