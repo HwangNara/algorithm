@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class P2667 {
 	
 	static List<Integer> answer = new ArrayList<>();
-	static List<Integer> prints = new ArrayList<>();
 	static int N, counter;
 	static boolean[][] house;
 	static boolean[][] visited;
@@ -33,17 +32,13 @@ public class P2667 {
 			for (int j = 0; j < N; j++) {
 				counter = 0;
 				find(i, j);
-				answer.add(counter);
+				if (counter != 0) answer.add(counter);
 			}
 		}
 		
 		Collections.sort(answer);
+		System.out.println(answer.size());
 		for (int ans : answer) {
-			if (ans != 0) prints.add(ans);
-		}
-		
-		System.out.println(prints.size());
-		for (int ans : prints) {
 			System.out.println(ans);
 		}
 		sc.close();
