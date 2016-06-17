@@ -1,4 +1,3 @@
-// TODO 시간초과... 왜?
 package acmicpc.p11000;
 
 import java.util.Scanner;
@@ -26,9 +25,7 @@ public class P11575 {
 		for (int i = 0; i < sentence.length(); i++) {
 			cs[i] = ((char) (((a * (sentence.charAt(i) - 65) + b) % 26) + 65));
 		}
-		for (char c : cs) {
-			System.out.print(c);
-		}
-		System.out.println();
+		String temp = new String(cs, 0, cs.length);
+		System.out.println(temp);
 	}
 }

@@ -19,7 +19,7 @@ public class P7596 {
 		while (true) {
 			N = Integer.parseInt(sc.nextLine());
 			if (N == 0) break;
-			
+			list.clear();
 			for (int i = 0; i < N; i++) list.add(sc.nextLine());
 			
 			Collections.sort(list, new Comparator<String>() {
