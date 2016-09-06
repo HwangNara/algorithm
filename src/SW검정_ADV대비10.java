@@ -2,7 +2,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class SW°ËÁ¤_ADV´ëºñ10 {
+public class SWê²€ì •_ADVëŒ€ë¹„10 {
 
 	static int[][] input = new int[30][30];
 	static int[][] discovered = new int[30][30];
