@@ -14,19 +14,29 @@ public class P2607 {
 		int answer = 0;
 		
 		String std = br.readLine();
-		boolean[] stdHave = new boolean[26];
+		int[] stdHave = new int[26];
 		for (int i = 0; i < std.length(); i++) {
-			stdHave[std.charAt(i) - 65] = true;
+			stdHave[std.charAt(i) - 65]++;
 		}
 		
 		
-		findAnswer  :for (int i = 0; i < N; i++) {
+		for (int i = 0; i < N; i++) {
 			String temp = br.readLine();
 			int size = temp.length();
+			int[] tempHave = new int[26];
+			int check = 0;
+			
 			for (int j = 0; j < size; j++) {
-				if (!stdHave[temp.charAt(j) - 65]) continue findAnswer;
+				tempHave[temp.charAt(j) - 65]++;
 			}
-			answer++;
+			
+			for (int j = 0; j < tempHave.length; j++) {
+				if (stdHave[j] - tempHave[j] != 0) {
+					check++;
+				}
+			}
+			if (check < 2) answer++;
+			if (check == 2 && std.length() == temp.length()) answer++;
 		}
 		System.out.println(answer);
 	}
