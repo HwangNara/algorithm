@@ -21,6 +21,7 @@ public class P1916 {
 		M = Integer.parseInt(br.readLine());
 		cost = new int[N + 1][N + 1];
 		answer = new int[N + 1];
+		visited = new boolean[N + 1];
 		int start;
 		int end;
 		
@@ -44,24 +45,34 @@ public class P1916 {
 		
 		answer[start] = 0;
 		visited[start] = true;
-		int minIndex = findMinIndex(start);
+		
+		int minIndex = findMinIndex();
+		visited[minIndex] = true;
+		
+		System.out.println(answer[end]);
 	}
 
-	private static int findMinIndex(int start) {
+	private static int findMinIndex() {
 		int minIndex = 0;
 		int minValue = 0;
 		int temp = 0;
-		for (int i = 1; i <= N; i++) {
-			temp = cost[start][i];
-			if (minValue > temp) {
-				minValue = temp;
-				minIndex = i;
+		
+		for (int k = 1; k <= N; k++) {
+			if (visited[k]) continue;
+			for (int i = 1; i <= N; i++) {
+				temp = cost[k][i];
+				if (minValue > temp && !visited[i]) {
+					minValue = temp;
+					minIndex = i;
+				}
+				
+				if (answer[i] > answer[k] + temp) {
+					answer[i] = answer[k] + temp;
+				}
 			}
-			
-			if (answer[i] > answer[start] + temp) {
-				answer[i] = answer[start] + temp;
-			}
+
 		}
+		
 		return minIndex;
 	}
 }
