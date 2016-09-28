@@ -1,6 +1,6 @@
 package topcorder.book;
 
-public class C5_7 {
+public class C05_07 {
 
 	public static void main(String[] args) {
 		System.out.println(find("abab"));

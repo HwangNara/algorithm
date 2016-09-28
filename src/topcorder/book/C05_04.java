@@ -2,7 +2,7 @@ package topcorder.book;
 
 import java.util.Arrays;
 
-public class C5_4 {
+public class C05_04 {
 
 	public static void main(String[] args) {
 		System.out.println(encrypt(new int[]{1, 2, 3}));

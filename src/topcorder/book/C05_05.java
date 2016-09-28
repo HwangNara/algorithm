@@ -2,7 +2,7 @@ package topcorder.book;
 
 import java.util.ArrayList;
 
-public class C5_5 {
+public class C05_05 {
 
 	public static void main(String[] args) {
 		int[] result = digits(30);
