@@ -3,6 +3,8 @@ package acmicpc.p1000;
 import java.util.Scanner;
 
 public class P1149 {
+	
+	static final int colorNum = 3;
 
 	public static void main(String[] args) {
 		
@@ -11,21 +13,19 @@ public class P1149 {
 		int[][] rgb = new int[2][3];
 		int[][] cost = new int[2][3];
 		
-		// 처음 한 줄 세팅
-		rgb[0][0] = sc.nextInt();
-		rgb[0][1] = sc.nextInt();
-		rgb[0][2] = sc.nextInt();
-		cost[0][0] = rgb[0][0];
-		cost[0][1] = rgb[0][1];
-		cost[0][2] = rgb[0][2];
+		for (int i = 0; i < colorNum; i++) {
+			rgb[0][i] = sc.nextInt();
+			cost[0][i] = rgb[0][i];
+		}
 		
 		for (int i = 1; i < N; i++) {
-			rgb[i & 1][0] = sc.nextInt();
-			rgb[i & 1][1] = sc.nextInt();
-			rgb[i & 1][2] = sc.nextInt();
-			cost[i & 1][0] = min(rgb[i & 1][0] + cost[(i - 1) & 1][1], rgb[i & 1][0] + cost[(i - 1) & 1][2]);
-			cost[i & 1][1] = min(rgb[i & 1][1] + cost[(i - 1) & 1][0], rgb[i & 1][1] + cost[(i - 1) & 1][2]);
-			cost[i & 1][2] = min(rgb[i & 1][2] + cost[(i - 1) & 1][0], rgb[i & 1][2] + cost[(i - 1) & 1][1]);
+			for (int j = 0; j < colorNum; j++) {
+				rgb[i & 1][j] = sc.nextInt();
+			}
+			for (int j = 0; j < colorNum; j++) {
+				cost[i & 1][j] = Math.min(rgb[i & 1][j] + cost[(i - 1) & 1][(j + 1) % 3], 
+										  rgb[i & 1][j] + cost[(i - 1) & 1][(j + 2) % 3]);	
+			}
 		}
 		
 		System.out.println(min(cost[(N - 1) & 1][0], cost[(N - 1) & 1][1], cost[(N - 1) & 1][2]));
@@ -33,17 +33,6 @@ public class P1149 {
 	}
 
 	private static int min(int a, int b, int c) {
-		if (a <= b && a <= c) {
-			return a;
-		} else if (b <= a && b <= c) {
-			return b;
-		} else if (c <= a && c <= b) {
-			return c;
-		}
-		return -1;
-	}
-
-	private static int min(int a, int b) {
-		return a > b ? b : a;
+		return Math.min(Math.min(a, b), c);
 	}
 }
