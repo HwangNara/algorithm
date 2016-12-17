@@ -47,20 +47,20 @@ public class P2178 {
 		int pos;
 		while (!queue.isEmpty()) {
 			pos = queue.poll();
-			
 			int x = pos / M;
 			int y = pos % M;
 			
-			if (x > 0) addQueueing(x - 1, y, cost[x][y]);  
-			if (y > 0) addQueueing(x, y - 1, cost[x][y]);
-			if (x < N - 1) addQueueing(x + 1, y, cost[x][y]);
-			if (y < M - 1) addQueueing(x, y + 1, cost[x][y]);
+			addQueueing(x - 1, y, cost[x][y]);  
+			addQueueing(x, y - 1, cost[x][y]);
+			addQueueing(x + 1, y, cost[x][y]);
+			addQueueing(x, y + 1, cost[x][y]);
 		}
 		System.out.println(cost[N - 1][M - 1]);
 		
 	}
 
 	private static void addQueueing(int x, int y, int value) {
+		if (x < 0 || y < 0 || x >= N || y >= M) return;
 		if (map[x][y] == 1 && !visited[x][y]) {
 			visited[x][y] = true;
 			queue.offer(x * M + y);

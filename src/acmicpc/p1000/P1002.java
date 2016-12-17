@@ -12,6 +12,7 @@ public class P1002 {
 		long x1, y1, r1, x2, y2, r2;
 		long smallR, bigR;
 		double d, r;
+		
 		for (int i = 0; i < T; i++) {
 			x1 = sc.nextInt();
 			y1 = sc.nextInt();
@@ -27,8 +28,8 @@ public class P1002 {
 			} else if (d == 0) {
 				answer = r1 == r2 ? -1 : 0;
 			} else if (r > d) {
-				smallR = r1 > r2 ? r2 : r1;
-				bigR = r1 > r2 ? r1 : r2;
+				smallR = Math.min(r1, r2);
+				bigR = Math.max(r1, r2);
 				if (smallR + d == bigR) {
 					answer = 1;
 				} else if (smallR + d < bigR) {
