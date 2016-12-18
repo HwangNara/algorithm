@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 public class P7576 {
 
 	static int M, N;
-	static int zero, minus, ans;
+	static int zeroCnt, minusCnt, ans;
 	static int[][] d;
 	static Queue<Integer> que = new LinkedList<>();
 	static List<Integer> tmpList = new LinkedList<>();
@@ -29,14 +29,11 @@ public class P7576 {
 			for (int j = 0; j < M; j++) {
 				int tmp = Integer.parseInt(st.nextToken());
 				d[i][j] = tmp;
-				if (tmp == 0) zero++;
-				if (tmp == -1) minus++;
-				if (tmp == 1) {
-					que.offer(i * M + j);
-				}
+				if (tmp == 0) zeroCnt++;
+				if (tmp == -1) minusCnt++;
+				if (tmp == 1) que.offer(i * M + j);
 			}
 		}
-		
 			
 		while (true) {
 			tmpList.clear();
@@ -55,7 +52,7 @@ public class P7576 {
 			ans++;
 		}
 		
-		System.out.println(minus == M*N ? -1 : zero == 0 ? ans : -1);
+		System.out.println(minusCnt == M*N ? -1 : zeroCnt == 0 ? ans : -1);
 	}
 
 	private static void plus(int i, int j) {
@@ -64,7 +61,7 @@ public class P7576 {
 		if (d[i][j] == 0) {
 			d[i][j] = 1;
 			tmpList.add(i * M + j);
-			zero--;
+			zeroCnt--;
 		}
 	}
 }
