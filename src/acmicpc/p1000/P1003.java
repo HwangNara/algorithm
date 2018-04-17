@@ -7,8 +7,8 @@ import java.io.OutputStreamWriter;
 
 public class P1003 {
 
-    static int[] result0 = new int[41];
-    static int[] result1 = new int[41];
+    private static int[] result0 = new int[41];
+    private static int[] result1 = new int[41];
     static {
         result0[0] = 1;
         result0[1] = 0;
