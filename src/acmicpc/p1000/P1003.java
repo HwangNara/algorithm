@@ -1,36 +1,37 @@
 package acmicpc.p1000;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class P1003 {
+
+    static int[] result0 = new int[41];
+    static int[] result1 = new int[41];
+    static {
+        result0[0] = 1;
+        result0[1] = 0;
+        result1[0] = 0;
+        result1[1] = 1;
+        for (int i = 2; i <= 40; i++) {
+            result0[i] = result0[i-1] + result0[i-2];
+            result1[i] = result1[i-1] + result1[i-2];
+        }
+    }
 	
-	static int[] counter = new int[2];
+	public static void main(String[] args) throws Exception {
 
-	public static void main(String[] args) {
-
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int[] fibos = new int[n];
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
+		int n = Integer.parseInt(br.readLine());
 		for (int i = 0; i < n; i++) {
-			fibos[i] = sc.nextInt();
+			int index = Integer.parseInt(br.readLine());
+			sb.append(result0[index]).append(" ").append(result1[index]).append("\n");
 		}
 		
-		for (int i = 0; i < n; i++) {
-			counter[0] = 0;
-			counter[1] = 0;
-			fibonacci(fibos[i]);
-			System.out.println(counter[0] + " " + counter[1]);
-		}
-			 
-		sc.close();
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		bw.write(sb.toString());
+		bw.flush();
 	}
-
-	private static int fibonacci(int n) {
-	    if (n == 0 || n == 1) {
-	    	counter[n]++;
-	        return n; 
-	    }
-        return fibonacci(n - 1) + fibonacci(n - 2);
-	}
-	
 }
