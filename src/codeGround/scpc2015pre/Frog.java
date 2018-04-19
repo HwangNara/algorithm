@@ -1,23 +1,23 @@
 package codeGround.scpc2015pre;
 
-/* �Ʒ� �⺻ ������ �ڵ带 ���� �Ǵ� �����ϰ� ������ �ڵ带 ����ϼŵ� �˴ϴ�.
-��, ����ϴ� Ŭ�������� Solution �̾�� �ϸ�, ������ Solution.java �� ����� ���� �����մϴ�.
-�̷��� ��Ȳ������ �����ϰ� java Solution �������� ���α׷��� ������ �� �� �ֽ��ϴ�. */
+/* 아래 기본 제공된 코드를 수정 또는 삭제하고 본인이 코드를 사용하셔도 됩니다.
+단, 사용하는 클래스명이 Solution 이어야 하며, 가급적 Solution.java 를 사용할 것을 권장합니다.
+이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해 볼 수 있습니다. */
 import java.util.Scanner;
 import java.io.FileInputStream;
 
 public class Frog {
-	
+
 	static int[] stones;
 	static int test_case = 0;
-	
+
 	public static void main(String args[]) throws Exception	{
-		/* �Ʒ� �޼ҵ� ȣ���� ������ ǥ���Է�(Ű����) ��� input.txt ���Ϸ� ���� �о���ڴٴ� �ǹ��� �ڵ��Դϴ�.
-		   ���� ������ PC ���� �׽�Ʈ �� ����, �Է°��� input.txt�� ������ �� �� �ڵ带 ù �κп� ����ϸ�,
-		   ǥ���Է� ��� input.txt ���Ϸ� ���� �Է°��� �о� �� �� �ֽ��ϴ�.
-		   ����, ���� PC���� �Ʒ� �޼ҵ带 ������� �ʰ� ǥ���Է��� ����Ͽ� �׽�Ʈ�ϼŵ� �����մϴ�.
-		   ��, Codeground �ý��ۿ��� "�����ϱ�" �� ������ �ݵ�� �� �޼ҵ带 ����ų� �ּ�(//) ó�� �ϼž� �մϴ�. */
-		
+		/* 아래 메소드 호출은 앞으로 표준입력(키보드) 대신 input.txt 파일로 부터 읽어오겠다는 의미의 코드입니다.
+		   만약 본인의 PC 에서 테스트 할 때는, 입력값을 input.txt에 저장한 후 이 코드를 첫 부분에 사용하면,
+		   표준입력 대신 input.txt 파일로 부터 입력값을 읽어 올 수 있습니다.
+		   또한, 본인 PC에서 아래 메소드를 사용하지 않고 표준입력을 사용하여 테스트하셔도 무방합니다.
+		   단, Codeground 시스템에서 "제출하기" 할 때에는 반드시 이 메소드를 지우거나 주석(//) 처리 하셔야 합니다. */
+
 		Scanner sc = new Scanner(new FileInputStream("input_sample/frog_input.txt"));
 //		Scanner sc = new Scanner(System.in);
 
@@ -28,18 +28,18 @@ public class Frog {
 		int arrayCheckPointer = 0;
 		int stonesSize = 0;
 		int currentPosition;
-		
-		TC = sc.nextInt();        
+
+		TC = sc.nextInt();
 		for(test_case = 1; test_case <= TC; test_case++) {
-			
+
 			jump = 0;
 			range = 0;
 			rangeCheck = 0;
 			arrayCheckPointer = 0;
 			currentPosition = 0;
-			
-			// ���� ������ŭ �迭�� ����
-			// �ϸ鼭 ������ �Ÿ� ���ϸ鼭 �ִ� �ʿ��� �Ÿ� ���
+
+			// 돌의 갯수만큼 배열에 저장
+			// 하면서 돌들의 거리 비교하면서 최대 필요한 거리 계산
 			stones = new int[sc.nextInt()];
 			stonesSize = stones.length;
 			for (int i = 0; i < stonesSize; i++) {
@@ -49,19 +49,19 @@ public class Frog {
 				}
 			}
 			range = sc.nextInt();
-			
-			// ��ü �̵����� �˻�
+
+			// 전체 이동한지 검사
 			if (rangeCheck > range) {
 				answerPrint(-1);
 				continue;
 			}
-			
-			// ���� ���
-			// stones�� �ϳ��� ������Ű�鼭 range���� ���ų� ���� ��ġ�� ã��
+
+			// 실제 계산
+			// stones를 하나씩 증가시키면서 range보다 같거나 작은 위치를 찾음
 			while (arrayCheckPointer < stonesSize - 1) {
-				
+
 				for (int i = arrayCheckPointer + 1; i < stonesSize;i++) {
-					
+
 					if (range < stones[i] - currentPosition) {
 						break;
 					}
@@ -70,7 +70,7 @@ public class Frog {
 				currentPosition = stones[arrayCheckPointer];
 				jump++;
 			}
-			// �� �κп��� ������ ����Ͻʽÿ�.
+			// 이 부분에서 정답을 출력하십시오.
 			answerPrint(jump);
 		}
 		sc.close();
