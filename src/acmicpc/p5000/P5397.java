@@ -8,7 +8,7 @@ import java.util.List;
 
 public class P5397 {
 	
-	static int sp = 0; // 이제 쓸 곳
+	static int sp = 0;
 	static List<Character> keys = new ArrayList<>();
 	static StringBuilder sb = new StringBuilder();
 

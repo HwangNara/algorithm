@@ -18,7 +18,6 @@ public class P11048 {
 			}
 		}
 		
-		// 첫 가로줄 & 세로줄 세팅
 		for (int i = 1; i <= M; i++) candy[1][i] = maze[1][i];
 		for (int i = 1; i <= N; i++) candy[i][1] = maze[i][1];
 		

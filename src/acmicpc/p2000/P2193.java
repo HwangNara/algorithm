@@ -10,7 +10,7 @@ public class P2193 {
 		int N = sc.nextInt();
 		sc.close();
 		
-		long[][] dp = new long[N + 1][2]; // i자리의 j로 끝나는 개수
+		long[][] dp = new long[N + 1][2];
 		dp[1][0] = 0;
 		dp[1][1] = 1;
 		

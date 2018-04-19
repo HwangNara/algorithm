@@ -1,4 +1,4 @@
-// TODO 푸는중...
+// TODO
 
 package acmicpc.p1000;
 

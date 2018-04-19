@@ -23,7 +23,7 @@ public class P1028 {
 			}
 		}
 		
-		int maxSize = getMaxSize(R, C); // 최대 가능한 다이아  크기
+		int maxSize = getMaxSize(R, C);
 		
 		
 		for (int k = 0; k < map.length; k++) {

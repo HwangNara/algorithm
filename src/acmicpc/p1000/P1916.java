@@ -1,4 +1,4 @@
-// TODO 풀던중... visited 어떻게?
+// TODO ...
 package acmicpc.p1000;
 
 import java.io.BufferedReader;
