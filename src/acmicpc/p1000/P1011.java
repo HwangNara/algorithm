@@ -1,33 +1,37 @@
-// TODO 시간초과
-
 package acmicpc.p1000;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 public class P1011 {
-	
-	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt();
-		int d = 0;
-		for (int i = 0; i < N; i++) {
-			d = Math.abs(sc.nextInt() - sc.nextInt());
-			int n = 0;
-			int cnt = 1;
-			int sum = 0;
-			boolean flag = true;
-			while (true) {
-				if (flag) n++;
-				sum += n;
-				if (d <= sum) {
-					break;
-				}
-				cnt++;
-				flag = !flag;
-			}
-			System.out.println(cnt);
-		}
-		sc.close();
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
+		int n = Integer.parseInt(br.readLine());
+        StringTokenizer st;
+		for (int i=0; i<n; i++) {
+		    sb.setLength(0);
+            st = new StringTokenizer(br.readLine());
+            int x = Math.abs(Integer.parseInt(st.nextToken()) - Integer.parseInt(st.nextToken()));
+            bw.write(sb.append(answer(x)).append("\n").toString());
+        }
+        bw.flush();
 	}
+
+    private static long answer(int x) {
+	    long answer = 0;
+	    long counter = 0;
+	    for (long i=1;;i++) {
+	        for (int j=0; j<2; j++) {
+                counter += i;
+                if (counter >= x) return ++answer;
+                ++answer;
+            }
+        }
+    }
 }
