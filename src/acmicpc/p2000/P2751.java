@@ -17,23 +17,23 @@ public class P2751 {
 			if (arr[i] > max) max = arr[i];
 			if (arr[i] < min) min = arr[i];
 		}
-		
-		// ÃÖ¼Ò°ªÀ» »©¼­ ÃÖ¼Ò°ªÀÌ 0ÀÌ µÇ°Ô
-		for (i = 0; i < arr.length; i++) arr[i] = arr[i] - min; 
-		
-		// counts »ı¼º
+
+		// ìµœì†Œê°’ì„ ë¹¼ì„œ ìµœì†Œê°’ì´ 0ì´ ë˜ê²Œ
+		for (i = 0; i < arr.length; i++) arr[i] = arr[i] - min;
+
+		// counts ìƒì„±
 		int[] counts = new int[max - min + 1];
-		
-		// counts¿¡ °¢ ºóµµ ÇÒ´ç
+
+		// countsì— ê° ë¹ˆë„ í• ë‹¹
 		for (i = 0; i < arr.length; i++) counts[arr[i]]++;
-		
-		// counts¸¦ ¿À¸§Â÷¼øÀ¸·Î º¯°æ
+
+		// countsë¥¼ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ë³€ê²½
 		for (i = 1; i < counts.length; i++) counts[i] += counts[i - 1];
-		
+
 		// counting sort
 		for (i = arr.length - 1; i >= 0; i--) answers[counts[arr[i]]-- - 1] = arr[i];
-		
-		// ´Ù½Ã ÃÖ¼Ò°ªÀ» ´õÇØ¼­ ¿ø·¡ ¼ıÀÚ·Î º¯°æ
+
+		// ë‹¤ì‹œ ìµœì†Œê°’ì„ ë”í•´ì„œ ì›ë˜ ìˆ«ìë¡œ ë³€ê²½
 		for (i = 0; i < answers.length; i++) answers[i] = answers[i] + min;
 		for (int k : answers) System.out.println(k);
 		sc.close();

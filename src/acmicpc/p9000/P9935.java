@@ -1,5 +1,3 @@
-// 문자 폭발하고 남은 놈은 실제 지우는게 아니고 자리만 false로 표시?
-
 package acmicpc.p9000;
 
 import java.util.Scanner;

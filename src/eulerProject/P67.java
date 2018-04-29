@@ -30,7 +30,6 @@ public class P67 {
 		
 		
 		level--;
-		// sum들을 저장할 array
 		nums = new int[listNum.size()];
 		for (int i = 0; i < listNum.size(); i++) {
 			nums[i] = listNum.get(i);

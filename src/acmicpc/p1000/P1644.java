@@ -1,4 +1,4 @@
-// TODO ½Ã°£ ÃÊ°ú
+// TODO ì‹œê°„ ì´ˆê³¼
 package acmicpc.p1000;
 
 import java.util.ArrayList;
@@ -6,17 +6,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class P1644 {
-	
+
 	static List<Integer> primes = new ArrayList<>();
-	
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
-		
-		// N±îÁö ¼Ò¼öµé ±¸ÇÔ
+
+		// Nê¹Œì§€ ì†Œìˆ˜ë“¤ êµ¬í•¨
 		getPrimeToN(N);
-		
-		// °¹¼ö ±¸ÇÔ
+
+		// ê°¯ìˆ˜ êµ¬í•¨
 		int size = primes.size();
 		int cnt = 0;
 		int answer = 0;
@@ -39,9 +39,9 @@ public class P1644 {
 		int limit = 0;
 		primes.add(2);
 		primes.add(3);
-		
+
 		for (int n = 4; n <= N; n++) {
-			if ((n & 1) != 0) { // È¦¼ö¸¸ °Ë»çÇØº½
+			if ((n & 1) != 0) { // í™€ìˆ˜ë§Œ ê²€ì‚¬í•´ë´„
 				checkPrime(n, limit);
 			}
 		}
@@ -55,6 +55,6 @@ public class P1644 {
 		for (int divide = 2; divide <= limit; divide++) {
 			if (n % divide == 0) break;
 			if (limit == divide) primes.add(n);
-		}		
+		}
 	}
 }

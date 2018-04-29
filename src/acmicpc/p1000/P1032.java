@@ -11,7 +11,6 @@ public class P1032 {
 		int N = Integer.parseInt(sc.nextLine());
 		boolean[] check = new boolean[50];  
 		
-		// Ã³À½
 		String standard = sc.nextLine();
 		int size = standard.length();
 		
@@ -30,7 +29,7 @@ public class P1032 {
 		}
 		
 		for (int i = 0; i < size; i++) {
-			System.out.print(check[i] == true ? "?" : standard.charAt(i));
+			System.out.print(check[i] ? "?" : standard.charAt(i));
 		}
 		
 		sc.close();
