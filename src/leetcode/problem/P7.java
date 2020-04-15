@@ -1,4 +1,4 @@
-package leetcode.challenge30day.problem;
+package leetcode.problem;
 
 public class P7 {
 
