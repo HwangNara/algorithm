@@ -1,4 +1,4 @@
-package leetcode.problem;
+package leetcode.problem.p0;
 
 public class P21 {
 

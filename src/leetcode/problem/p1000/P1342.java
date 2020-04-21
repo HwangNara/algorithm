@@ -1,4 +1,4 @@
-package leetcode.problem;
+package leetcode.problem.p1000;
 
 public class P1342 {
 

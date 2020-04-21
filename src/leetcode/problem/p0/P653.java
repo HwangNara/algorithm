@@ -1,4 +1,4 @@
-package leetcode.problem;
+package leetcode.problem.p0;
 
 import java.util.HashSet;
 import java.util.LinkedList;
