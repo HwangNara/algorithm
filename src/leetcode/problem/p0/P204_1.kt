@@ -3,20 +3,21 @@ package leetcode.problem.p0
 import kotlin.math.sqrt
 
 fun main() {
+    println(countPrimes(11))
     println(countPrimes(2))
+    println(countPrimes(5))
+    println(countPrimes(10))
 }
 
 fun countPrimes(input: Int): Int {
     val n = input - 1
     if (n < 2) return 0
     if (n == 2) return 1
-    var count = 1
-    for (i in 3..n step 2) {
-        if (isPrime(i)) {
-            count++
-        }
-    }
-    return count
+
+    return (3..n step 2)
+            .asSequence()
+            .filter { isPrime(it) }
+            .count() + 1
 }
 
 fun isPrime(n: Int): Boolean {
